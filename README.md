@@ -103,6 +103,36 @@ Global verdict: PASS ✓
 
 ---
 
+## Complexity Score Definition
+
+The complexity score (0–1) determines which routing band a prompt falls into. It is computed **before any model call** — making it a zero-cost, deterministic signal that cannot depend on LLM output.
+
+```python
+complexity_score = (
+    0.50 * token_count_score      +  # normalised prompt token count
+    0.30 * vocabulary_entropy     +  # type-token ratio (lexical diversity)
+    0.20 * task_type_baseline        # fixed baseline by task type
+)
+```
+
+**Token count score:** `min(prompt_tokens / 500, 1.0)` — a 500-token prompt scores 1.0; a 50-token prompt scores 0.1. Longer prompts require more context retention and typically benefit from larger models.
+
+**Vocabulary entropy:** Type-token ratio = unique tokens / total tokens. High TTR (0.8+) signals domain-specific or technical language where smaller models lose precision. Low TTR (0.2–0.4) signals repetitive, formulaic text a smaller model handles well.
+
+**Task type baseline:** Extraction tasks get a 0.15 baseline (structured field correctness is sensitive to model quality), classification gets 0.10, summarization gets 0.05 (most tolerant of quality degradation).
+
+**Routing bands:**
+
+| Band | Score Range | Default Route | Rationale |
+|------|-------------|---------------|-----------|
+| Simple | < 0.35 | local / small | Short, low-entropy — local model sufficient |
+| Standard | 0.35–0.70 | medium | Moderate complexity — gpt-4o-mini hits quality floor |
+| Complex | > 0.70 | large | Long, technical, or extraction — quality floor requires large |
+
+The score is logged in the audit record per call, enabling post-hoc validation that routing decisions were based on reproducible inputs.
+
+---
+
 ## Synthetic Dataset
 
 `data/generator.py` generates a deterministic (seeded) dataset of **300 prompts** across 3 task types:
