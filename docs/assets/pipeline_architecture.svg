@@ -1,0 +1,184 @@
+<svg viewBox="0 0 1100 480" xmlns="http://www.w3.org/2000/svg" font-family="'Segoe UI', system-ui, -apple-system, sans-serif">
+  <defs>
+    <linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="inputGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#475569"/>
+      <stop offset="100%" style="stop-color:#334155"/>
+    </linearGradient>
+    <linearGradient id="profilerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#3b82f6"/>
+      <stop offset="100%" style="stop-color:#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="evalGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#8b5cf6"/>
+      <stop offset="100%" style="stop-color:#6d28d9"/>
+    </linearGradient>
+    <linearGradient id="costGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f59e0b"/>
+      <stop offset="100%" style="stop-color:#d97706"/>
+    </linearGradient>
+    <linearGradient id="paretoGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#10b981"/>
+      <stop offset="100%" style="stop-color:#059669"/>
+    </linearGradient>
+    <linearGradient id="routerGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#f97316"/>
+      <stop offset="100%" style="stop-color:#ea580c"/>
+    </linearGradient>
+    <linearGradient id="auditGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#64748b"/>
+      <stop offset="100%" style="stop-color:#475569"/>
+    </linearGradient>
+    <linearGradient id="reportGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#ef4444"/>
+      <stop offset="100%" style="stop-color:#dc2626"/>
+    </linearGradient>
+    <filter id="shadow" x="-10%" y="-10%" width="120%" height="130%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.5"/>
+    </filter>
+    <filter id="glow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge><feMergeNode in="coloredBlur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+    <marker id="arrowhead" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#94a3b8"/>
+    </marker>
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0 0, 8 3, 0 6" fill="#60a5fa"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="480" fill="url(#bg)" rx="12"/>
+
+  <!-- Grid lines (subtle) -->
+  <g opacity="0.04" stroke="#94a3b8" stroke-width="1">
+    <line x1="0" y1="80" x2="1100" y2="80"/>
+    <line x1="0" y1="160" x2="1100" y2="160"/>
+    <line x1="0" y1="240" x2="1100" y2="240"/>
+    <line x1="0" y1="320" x2="1100" y2="320"/>
+    <line x1="0" y1="400" x2="1100" y2="400"/>
+    <line x1="200" y1="0" x2="200" y2="480"/>
+    <line x1="400" y1="0" x2="400" y2="480"/>
+    <line x1="600" y1="0" x2="600" y2="480"/>
+    <line x1="800" y1="0" x2="800" y2="480"/>
+    <line x1="1000" y1="0" x2="1000" y2="480"/>
+  </g>
+
+  <!-- Title -->
+  <text x="550" y="38" fill="#f8fafc" font-size="20" font-weight="700" text-anchor="middle" letter-spacing="1">InferenceLens — Pipeline Architecture</text>
+  <text x="550" y="58" fill="#94a3b8" font-size="11" text-anchor="middle">Inference Cost / Quality Tradeoff Auditor</text>
+
+  <!-- ===== NODES ===== -->
+
+  <!-- Input node (left) -->
+  <rect x="20" y="170" width="130" height="70" rx="10" fill="url(#inputGrad)" filter="url(#shadow)"/>
+  <text x="85" y="200" fill="#f8fafc" font-size="12" font-weight="700" text-anchor="middle">Synthetic Data</text>
+  <text x="85" y="216" fill="#cbd5e1" font-size="10" text-anchor="middle">300 prompts</text>
+  <text x="85" y="230" fill="#94a3b8" font-size="9" text-anchor="middle">3 task types</text>
+
+  <!-- InferenceProfiler -->
+  <rect x="200" y="120" width="145" height="80" rx="10" fill="url(#profilerGrad)" filter="url(#shadow)"/>
+  <text x="272" y="148" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Inference</text>
+  <text x="272" y="164" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Profiler</text>
+  <text x="272" y="182" fill="#bfdbfe" font-size="9" text-anchor="middle">profiler.py</text>
+  <text x="272" y="193" fill="#93c5fd" font-size="9" text-anchor="middle">tokens · latency · cost</text>
+
+  <!-- QualityEvaluator -->
+  <rect x="200" y="250" width="145" height="80" rx="10" fill="url(#evalGrad)" filter="url(#shadow)"/>
+  <text x="272" y="278" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Quality</text>
+  <text x="272" y="294" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Evaluator</text>
+  <text x="272" y="312" fill="#ddd6fe" font-size="9" text-anchor="middle">evaluator.py</text>
+  <text x="272" y="323" fill="#c4b5fd" font-size="9" text-anchor="middle">ROUGE · F1 · ExactMatch</text>
+
+  <!-- CostTracker -->
+  <rect x="400" y="170" width="145" height="80" rx="10" fill="url(#costGrad)" filter="url(#shadow)"/>
+  <text x="472" y="198" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Cost</text>
+  <text x="472" y="214" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Tracker</text>
+  <text x="472" y="232" fill="#fef3c7" font-size="9" text-anchor="middle">cost_tracker.py</text>
+  <text x="472" y="243" fill="#fde68a" font-size="9" text-anchor="middle">USD · tokens · latency</text>
+
+  <!-- ParetoAnalyzer -->
+  <rect x="600" y="120" width="145" height="80" rx="10" fill="url(#paretoGrad)" filter="url(#shadow)"/>
+  <text x="672" y="148" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Pareto</text>
+  <text x="672" y="164" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Analyzer</text>
+  <text x="672" y="182" fill="#d1fae5" font-size="9" text-anchor="middle">pareto.py</text>
+  <text x="672" y="193" fill="#a7f3d0" font-size="9" text-anchor="middle">frontier · dominated</text>
+
+  <!-- RoutingRecommender -->
+  <rect x="600" y="250" width="145" height="80" rx="10" fill="url(#routerGrad)" filter="url(#shadow)"/>
+  <text x="672" y="278" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Routing</text>
+  <text x="672" y="294" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Recommender</text>
+  <text x="672" y="312" fill="#ffedd5" font-size="9" text-anchor="middle">router.py</text>
+  <text x="672" y="323" fill="#fed7aa" font-size="9" text-anchor="middle">IF · THEN · rules</text>
+
+  <!-- AuditLogger -->
+  <rect x="800" y="170" width="130" height="80" rx="10" fill="url(#auditGrad)" filter="url(#shadow)"/>
+  <text x="865" y="200" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Audit</text>
+  <text x="865" y="216" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Logger</text>
+  <text x="865" y="234" fill="#e2e8f0" font-size="9" text-anchor="middle">audit.py · JSONL</text>
+  <text x="865" y="245" fill="#cbd5e1" font-size="9" text-anchor="middle">full decision trail</text>
+
+  <!-- Report -->
+  <rect x="960" y="170" width="120" height="80" rx="10" fill="url(#reportGrad)" filter="url(#shadow)"/>
+  <text x="1020" y="200" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Report</text>
+  <text x="1020" y="216" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">Generator</text>
+  <text x="1020" y="234" fill="#fee2e2" font-size="9" text-anchor="middle">report.py</text>
+  <text x="1020" y="245" fill="#fca5a5" font-size="9" text-anchor="middle">PASS/WARN/FAIL</text>
+
+  <!-- ===== ARROWS ===== -->
+
+  <!-- Input → Profiler -->
+  <line x1="150" y1="200" x2="198" y2="175" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowhead)" stroke-dasharray="4,3"/>
+  <!-- Input → Evaluator -->
+  <line x1="150" y1="215" x2="198" y2="280" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrowhead)" stroke-dasharray="4,3"/>
+
+  <!-- Profiler → CostTracker -->
+  <line x1="345" y1="165" x2="398" y2="210" stroke="#60a5fa" stroke-width="2" marker-end="url(#arrowBlue)"/>
+  <!-- Evaluator → CostTracker -->
+  <line x1="345" y1="295" x2="398" y2="235" stroke="#a78bfa" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- CostTracker → Pareto -->
+  <line x1="545" y1="195" x2="598" y2="170" stroke="#fbbf24" stroke-width="2" marker-end="url(#arrowhead)"/>
+  <!-- CostTracker → Router -->
+  <line x1="545" y1="225" x2="598" y2="270" stroke="#fbbf24" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Pareto → Router (vertical) -->
+  <line x1="672" y1="200" x2="672" y2="248" stroke="#34d399" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- Pareto → Audit -->
+  <line x1="745" y1="165" x2="798" y2="205" stroke="#34d399" stroke-width="1.5" marker-end="url(#arrowhead)" stroke-dasharray="5,3"/>
+  <!-- Router → Audit -->
+  <line x1="745" y1="295" x2="798" y2="245" stroke="#fb923c" stroke-width="1.5" marker-end="url(#arrowhead)" stroke-dasharray="5,3"/>
+
+  <!-- Audit → Report -->
+  <line x1="930" y1="210" x2="958" y2="210" stroke="#94a3b8" stroke-width="2" marker-end="url(#arrowhead)"/>
+
+  <!-- ===== BOTTOM BAR ===== -->
+  <rect x="20" y="395" width="1060" height="70" rx="8" fill="#0f172a" opacity="0.85"/>
+  <line x1="20" y1="395" x2="1080" y2="395" stroke="#334155" stroke-width="1"/>
+
+  <!-- Metric boxes -->
+  <rect x="40" y="408" width="190" height="44" rx="6" fill="#1e293b"/>
+  <text x="135" y="426" fill="#94a3b8" font-size="9" text-anchor="middle" font-weight="600">QUALITY METRIC</text>
+  <text x="135" y="443" fill="#60a5fa" font-size="13" font-weight="700" text-anchor="middle">quality / normalized_cost</text>
+
+  <rect x="250" y="408" width="200" height="44" rx="6" fill="#1e293b"/>
+  <text x="350" y="426" fill="#94a3b8" font-size="9" text-anchor="middle" font-weight="600">PARETO STATUS</text>
+  <text x="350" y="443" fill="#34d399" font-size="13" font-weight="700" text-anchor="middle">FRONTIER ✓  DOMINATED ✗</text>
+
+  <rect x="470" y="408" width="200" height="44" rx="6" fill="#1e293b"/>
+  <text x="570" y="426" fill="#94a3b8" font-size="9" text-anchor="middle" font-weight="600">ROUTING VERDICT</text>
+  <text x="570" y="443" fill="#f97316" font-size="13" font-weight="700" text-anchor="middle">PASS  WARN  FAIL</text>
+
+  <rect x="690" y="408" width="180" height="44" rx="6" fill="#1e293b"/>
+  <text x="780" y="426" fill="#94a3b8" font-size="9" text-anchor="middle" font-weight="600">MODEL TIERS</text>
+  <text x="780" y="443" fill="#c4b5fd" font-size="11" font-weight="700" text-anchor="middle">large · medium · small · local</text>
+
+  <rect x="890" y="408" width="190" height="44" rx="6" fill="#1e293b"/>
+  <text x="985" y="426" fill="#94a3b8" font-size="9" text-anchor="middle" font-weight="600">AUDIT TRAIL</text>
+  <text x="985" y="443" fill="#94a3b8" font-size="11" font-weight="700" text-anchor="middle">JSONL · full provenance</text>
+</svg>

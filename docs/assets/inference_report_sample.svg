@@ -1,0 +1,190 @@
+<svg viewBox="0 0 1100 520" xmlns="http://www.w3.org/2000/svg" font-family="'JetBrains Mono', 'Fira Code', 'Cascadia Code', monospace">
+  <defs>
+    <linearGradient id="bg2" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0f172a"/>
+      <stop offset="100%" style="stop-color:#1e293b"/>
+    </linearGradient>
+    <linearGradient id="cardGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#1e293b"/>
+      <stop offset="100%" style="stop-color:#162032"/>
+    </linearGradient>
+    <filter id="shadow2">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.6"/>
+    </filter>
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- Background -->
+  <rect width="1100" height="520" fill="url(#bg2)" rx="12"/>
+
+  <!-- Title bar -->
+  <rect x="0" y="0" width="1100" height="52" fill="#0f172a" rx="12"/>
+  <rect x="0" y="40" width="1100" height="12" fill="#0f172a"/>
+  <circle cx="32" cy="26" r="7" fill="#ef4444" opacity="0.9"/>
+  <circle cx="56" cy="26" r="7" fill="#f59e0b" opacity="0.9"/>
+  <circle cx="80" cy="26" r="7" fill="#10b981" opacity="0.9"/>
+  <text x="550" y="32" fill="#94a3b8" font-size="13" text-anchor="middle" letter-spacing="1">InferenceLens — Sample Report Output</text>
+
+  <!-- ===== LEFT PANEL: Pareto Table ===== -->
+  <rect x="24" y="70" width="650" height="420" rx="10" fill="url(#cardGrad)" filter="url(#shadow2)"/>
+
+  <!-- Panel header -->
+  <rect x="24" y="70" width="650" height="44" rx="10" fill="#1e3a5f" opacity="0.8"/>
+  <rect x="24" y="100" width="650" height="14" fill="#1e3a5f" opacity="0.8"/>
+  <text x="44" y="97" fill="#60a5fa" font-size="13" font-weight="700">InferenceLens Report — Summarization Task</text>
+
+  <!-- Table header line -->
+  <text x="44" y="132" fill="#475569" font-size="11">════════════════════════════════════════════════════════</text>
+  <text x="44" y="150" fill="#64748b" font-size="11">Config          Cost/call   Latency    Quality   Pareto</text>
+  <text x="44" y="164" fill="#334155" font-size="11">────────────────────────────────────────────────────────</text>
+
+  <!-- Row: large (DOMINATED) -->
+  <rect x="34" y="170" width="630" height="36" rx="4" fill="#7f1d1d" opacity="0.25"/>
+  <text x="44" y="192" fill="#fca5a5" font-size="12">large</text>
+  <text x="185" y="192" fill="#fca5a5" font-size="12">$0.0142</text>
+  <text x="315" y="192" fill="#fca5a5" font-size="12">1,240ms</text>
+  <text x="425" y="192" fill="#fca5a5" font-size="12">0.91</text>
+  <text x="510" y="192" fill="#ef4444" font-size="12" font-weight="700">DOMINATED ✗</text>
+
+  <!-- Row: medium (FRONTIER) -->
+  <rect x="34" y="208" width="630" height="36" rx="4" fill="#052e16" opacity="0.5"/>
+  <text x="44" y="230" fill="#6ee7b7" font-size="12">medium</text>
+  <text x="185" y="230" fill="#6ee7b7" font-size="12">$0.0021</text>
+  <text x="315" y="230" fill="#6ee7b7" font-size="12">380ms</text>
+  <text x="425" y="230" fill="#6ee7b7" font-size="12">0.88</text>
+  <text x="510" y="230" fill="#10b981" font-size="12" font-weight="700">FRONTIER ✓</text>
+
+  <!-- Row: small (FRONTIER) -->
+  <rect x="34" y="246" width="630" height="36" rx="4" fill="#052e16" opacity="0.35"/>
+  <text x="44" y="268" fill="#a7f3d0" font-size="12">small</text>
+  <text x="185" y="268" fill="#a7f3d0" font-size="12">$0.0008</text>
+  <text x="315" y="268" fill="#a7f3d0" font-size="12">210ms</text>
+  <text x="425" y="268" fill="#a7f3d0" font-size="12">0.79</text>
+  <text x="510" y="268" fill="#34d399" font-size="12" font-weight="700">FRONTIER ✓</text>
+
+  <!-- Row: local (FRONTIER) -->
+  <rect x="34" y="284" width="630" height="36" rx="4" fill="#052e16" opacity="0.2"/>
+  <text x="44" y="306" fill="#d1fae5" font-size="12">local</text>
+  <text x="185" y="306" fill="#d1fae5" font-size="12">$0.0000</text>
+  <text x="315" y="306" fill="#d1fae5" font-size="12">890ms</text>
+  <text x="425" y="306" fill="#d1fae5" font-size="12">0.74</text>
+  <text x="510" y="306" fill="#6ee7b7" font-size="12" font-weight="700">FRONTIER ✓</text>
+
+  <!-- Divider -->
+  <text x="44" y="330" fill="#334155" font-size="11">────────────────────────────────────────────────────────</text>
+
+  <!-- Routing Rules -->
+  <text x="44" y="352" fill="#94a3b8" font-size="11">Routing Rules:</text>
+
+  <rect x="34" y="358" width="630" height="34" rx="4" fill="#0c1a2e" opacity="0.7"/>
+  <text x="44" y="373" fill="#fbbf24" font-size="10" font-weight="700">[PASS]</text>
+  <text x="96" y="373" fill="#e2e8f0" font-size="10">IF task=summarization AND complexity&lt;0.35</text>
+  <text x="44" y="385" fill="#94a3b8" font-size="10">       THEN use=small  (saves 94% cost, quality_delta=-0.12)</text>
+
+  <rect x="34" y="396" width="630" height="34" rx="4" fill="#0c1a2e" opacity="0.7"/>
+  <text x="44" y="411" fill="#fbbf24" font-size="10" font-weight="700">[PASS]</text>
+  <text x="96" y="411" fill="#e2e8f0" font-size="10">IF task=summarization AND complexity&lt;0.70</text>
+  <text x="44" y="423" fill="#94a3b8" font-size="10">       THEN use=medium (saves 85% cost, quality_delta=-0.03)</text>
+
+  <rect x="34" y="434" width="630" height="34" rx="4" fill="#0c1a2e" opacity="0.7"/>
+  <text x="44" y="449" fill="#fbbf24" font-size="10" font-weight="700">[PASS]</text>
+  <text x="96" y="449" fill="#e2e8f0" font-size="10">IF task=summarization AND complexity&gt;=0.70</text>
+  <text x="44" y="461" fill="#94a3b8" font-size="10">       THEN use=medium (saves 85% cost, quality_delta=-0.03)</text>
+
+  <text x="44" y="480" fill="#334155" font-size="11">════════════════════════════════════════════════════════</text>
+
+  <!-- ===== RIGHT PANEL: Metrics + Pareto Curve ===== -->
+  <rect x="694" y="70" width="382" height="200" rx="10" fill="url(#cardGrad)" filter="url(#shadow2)"/>
+
+  <!-- Metrics header -->
+  <rect x="694" y="70" width="382" height="40" rx="10" fill="#14532d" opacity="0.7"/>
+  <rect x="694" y="96" width="382" height="14" fill="#14532d" opacity="0.7"/>
+  <text x="714" y="94" fill="#4ade80" font-size="12" font-weight="700">Routing Efficiency Scores</text>
+
+  <!-- Efficiency bars -->
+  <text x="714" y="125" fill="#94a3b8" font-size="10">medium</text>
+  <rect x="790" y="114" width="246" height="16" rx="3" fill="#1e293b"/>
+  <rect x="790" y="114" width="220" height="16" rx="3" fill="#10b981" opacity="0.85"/>
+  <text x="1022" y="125" fill="#34d399" font-size="10" font-weight="600">419.0</text>
+
+  <text x="714" y="148" fill="#94a3b8" font-size="10">small</text>
+  <rect x="790" y="137" width="246" height="16" rx="3" fill="#1e293b"/>
+  <rect x="790" y="137" width="180" height="16" rx="3" fill="#10b981" opacity="0.65"/>
+  <text x="1022" y="148" fill="#6ee7b7" font-size="10" font-weight="600">987.5</text>
+
+  <text x="714" y="171" fill="#94a3b8" font-size="10">local</text>
+  <rect x="790" y="160" width="246" height="16" rx="3" fill="#1e293b"/>
+  <rect x="790" y="160" width="246" height="16" rx="3" fill="#10b981" opacity="0.45"/>
+  <text x="1022" y="171" fill="#a7f3d0" font-size="10" font-weight="600">740.0</text>
+
+  <text x="714" y="194" fill="#94a3b8" font-size="10">large</text>
+  <rect x="790" y="183" width="246" height="16" rx="3" fill="#1e293b"/>
+  <rect x="790" y="183" width="65" height="16" rx="3" fill="#ef4444" opacity="0.6"/>
+  <text x="1022" y="194" fill="#fca5a5" font-size="10" font-weight="600">64.1</text>
+
+  <text x="714" y="256" fill="#64748b" font-size="9">routing_efficiency = quality / (normalized_cost × 1000 + 0.001)</text>
+
+  <!-- Pareto Curve visualization -->
+  <rect x="694" y="280" width="382" height="210" rx="10" fill="url(#cardGrad)" filter="url(#shadow2)"/>
+  <rect x="694" y="280" width="382" height="40" rx="10" fill="#1e1b4b" opacity="0.7"/>
+  <rect x="694" y="306" width="382" height="14" fill="#1e1b4b" opacity="0.7"/>
+  <text x="714" y="304" fill="#a5b4fc" font-size="12" font-weight="700">Pareto Curve — Cost vs. Quality</text>
+
+  <!-- Axes -->
+  <line x1="734" y1="456" x2="1054" y2="456" stroke="#334155" stroke-width="1.5"/>
+  <line x1="734" y1="456" x2="734" y2="326" stroke="#334155" stroke-width="1.5"/>
+  <text x="894" y="474" fill="#64748b" font-size="9" text-anchor="middle">Cost / call (USD) →</text>
+  <text x="718" y="391" fill="#64748b" font-size="9" text-anchor="middle" transform="rotate(-90,718,391)">Quality →</text>
+
+  <!-- Axis ticks Y -->
+  <text x="726" y="458" fill="#475569" font-size="8" text-anchor="end">0.7</text>
+  <text x="726" y="423" fill="#475569" font-size="8" text-anchor="end">0.8</text>
+  <text x="726" y="388" fill="#475569" font-size="8" text-anchor="end">0.9</text>
+  <line x1="730" y1="456" x2="734" y2="456" stroke="#334155" stroke-width="1"/>
+  <line x1="730" y1="421" x2="734" y2="421" stroke="#334155" stroke-width="1"/>
+  <line x1="730" y1="386" x2="734" y2="386" stroke="#334155" stroke-width="1"/>
+
+  <!-- Axis ticks X -->
+  <text x="744" y="468" fill="#475569" font-size="8" text-anchor="middle">$0</text>
+  <text x="844" y="468" fill="#475569" font-size="8" text-anchor="middle">$0.005</text>
+  <text x="944" y="468" fill="#475569" font-size="8" text-anchor="middle">$0.010</text>
+  <text x="1044" y="468" fill="#475569" font-size="8" text-anchor="middle">$0.015</text>
+
+  <!-- Pareto frontier line -->
+  <polyline points="744,452 804,448 924,432 1044,414" stroke="#10b981" stroke-width="2" fill="none" stroke-dasharray="6,3" opacity="0.6"/>
+
+  <!-- Data points -->
+  <!-- local: cost≈0, quality≈0.74 → x=744, y=456-(0.74-0.7)*350=456-14=442 -->
+  <circle cx="744" cy="443" r="9" fill="#10b981" filter="url(#cardShadow)"/>
+  <text x="744" y="447" fill="#fff" font-size="7" text-anchor="middle" font-weight="700">L</text>
+  <text x="744" y="433" fill="#a7f3d0" font-size="8" text-anchor="middle">local</text>
+
+  <!-- small: cost≈0.0008, quality≈0.79 → x=760, y=456-(0.79-0.7)*350=456-31.5=424 -->
+  <circle cx="772" cy="421" r="9" fill="#34d399" filter="url(#cardShadow)"/>
+  <text x="772" y="425" fill="#fff" font-size="7" text-anchor="middle" font-weight="700">S</text>
+  <text x="784" y="411" fill="#6ee7b7" font-size="8" text-anchor="middle">small</text>
+
+  <!-- medium: cost≈0.0021, quality≈0.88 → x=790, y=456-(0.88-0.7)*350=456-63=393 -->
+  <circle cx="810" cy="393" r="9" fill="#10b981" filter="url(#cardShadow)"/>
+  <text x="810" y="397" fill="#fff" font-size="7" text-anchor="middle" font-weight="700">M</text>
+  <text x="822" y="383" fill="#4ade80" font-size="8" text-anchor="middle">medium</text>
+
+  <!-- large: cost≈0.0142, quality≈0.91 → x=1044, y=456-(0.91-0.7)*350=456-73.5=382 -->
+  <circle cx="1044" cy="382" r="9" fill="#ef4444" filter="url(#cardShadow)"/>
+  <text x="1044" y="386" fill="#fff" font-size="7" text-anchor="middle" font-weight="700">X</text>
+  <text x="1044" y="372" fill="#fca5a5" font-size="8" text-anchor="middle">large ✗</text>
+
+  <!-- Dominated region shading -->
+  <polygon points="1044,382 1044,456 810,456 810,393" fill="#ef4444" opacity="0.05"/>
+  <text x="940" y="430" fill="#ef4444" font-size="8" opacity="0.6" text-anchor="middle">dominated zone</text>
+
+  <!-- Legend -->
+  <circle cx="744" cy="494" r="5" fill="#10b981"/>
+  <text x="754" y="498" fill="#94a3b8" font-size="9">Frontier</text>
+  <circle cx="810" cy="494" r="5" fill="#ef4444"/>
+  <text x="820" y="498" fill="#94a3b8" font-size="9">Dominated</text>
+  <line x1="870" y1="494" x2="900" y2="494" stroke="#10b981" stroke-width="2" stroke-dasharray="4,2"/>
+  <text x="908" y="498" fill="#94a3b8" font-size="9">Pareto frontier</text>
+</svg>
