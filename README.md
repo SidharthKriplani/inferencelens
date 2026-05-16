@@ -1,6 +1,19 @@
-# InferenceLens — Inference Cost/Quality Tradeoff Auditor
+<div align="center">
 
-**An auditor for AI inference routing decisions — makes the cost/quality tradeoff explicit, measurable, and defensible.**
+# InferenceLens
+
+**Inference Cost/Quality Tradeoff Auditor**
+
+> An auditor for AI inference routing decisions — makes the cost/quality tradeoff explicit, measurable, and defensible.
+
+[![Python](https://img.shields.io/badge/Python-3.11-blue?logo=python&logoColor=white)](https://www.python.org/)
+[![FastAPI](https://img.shields.io/badge/FastAPI-0.111-009688?logo=fastapi&logoColor=white)](https://fastapi.tiangolo.com/)
+[![Pydantic](https://img.shields.io/badge/Pydantic-v2-e92063)](https://docs.pydantic.dev/)
+[![Tests](https://img.shields.io/badge/tests-48%20passing-22c55e)](tests/)
+[![Pareto](https://img.shields.io/badge/Pareto%20Frontier-cost%20%2F%20quality-8b5cf6)](pipeline/pareto.py)
+[![License](https://img.shields.io/badge/license-MIT-green)](LICENSE)
+
+</div>
 
 ---
 
@@ -116,7 +129,7 @@ Global verdict: PASS ✓
 ### 1. Install
 
 ```bash
-git clone https://github.com/yourusername/inferencelens
+git clone https://github.com/SidharthKriplani/inferencelens
 cd inferencelens
 python -m venv .venv && source .venv/bin/activate
 pip install -r requirements.txt
@@ -229,15 +242,26 @@ inferencelens/
 
 ---
 
+## Interview Defense
+
+[📄 InferenceLens_Interview_Defense.pdf](docs/defense/InferenceLens_Interview_Defense.pdf) — covers:
+- Pareto dominance definition and edge cases (non-monotone quality curves)
+- Why ROUGE-1 for summarization and not BERTScore — tradeoffs and known limitations
+- How routing rules translate to a production API gateway (beyond IF/THEN logic)
+- Complexity signal definition — what features determine prompt complexity
+- Scaling to thousands of task types and distribution shift in production
+
+---
+
 ## Part of Applied LLM Systems Portfolio
 
 This is **Project 4** of 5 in a portfolio targeting Applied LLM Systems Engineer and Technical AI PM roles at FAANG.
 
 | # | Project | What It Demonstrates |
 |---|---------|---------------------|
-| 1 | [LendFlow](https://github.com/yourusername/lendflow) | Multi-agent LangGraph orchestration, RAG, structured outputs |
-| 2 | [AgentReliabilityLab](https://github.com/yourusername/agentreliabilitylab) | Agent failure taxonomy, adversarial red-teaming, reliability scoring |
-| 3 | [NexusSupply](https://github.com/yourusername/nexussupply) | Supply chain intelligence, FinBERT, ESG scoring, graph analysis |
+| 1 | [LendFlow](https://github.com/SidharthKriplani/lendflow) | Multi-agent LangGraph orchestration, RAG, structured outputs |
+| 2 | [AgentReliabilityLab](https://github.com/SidharthKriplani/agentreliabilitylab) | Agent failure taxonomy, adversarial red-teaming, reliability scoring |
+| 3 | [NexusSupply](https://github.com/SidharthKriplani/nexussupply) | Supply chain intelligence, FinBERT, ESG scoring, graph analysis |
 | **4** | **InferenceLens** | **Inference cost/quality auditing, Pareto analysis, routing rules** |
 | 5 | *(coming)* | Evaluation framework for long-context models |
 
