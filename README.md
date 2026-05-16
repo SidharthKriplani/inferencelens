@@ -255,14 +255,27 @@ inferencelens/
 
 ## Part of Applied LLM Systems Portfolio
 
-This is **Project 4** of 5 in a portfolio targeting Applied LLM Systems Engineer and Technical AI PM roles at FAANG.
+This library is part of a 13-repo Applied LLM Systems portfolio targeting Applied LLM Systems Engineer, MLOps, and Technical AI PM roles.
 
-| # | Project | What It Demonstrates |
-|---|---------|---------------------|
-| 1 | [LendFlow](https://github.com/SidharthKriplani/lendflow) | Multi-agent LangGraph orchestration, RAG, structured outputs |
-| 2 | [AgentReliabilityLab](https://github.com/SidharthKriplani/agentreliabilitylab) | Agent failure taxonomy, adversarial red-teaming, reliability scoring |
-| 3 | [NexusSupply](https://github.com/SidharthKriplani/nexussupply) | Supply chain intelligence, FinBERT, ESG scoring, graph analysis |
-| **4** | **InferenceLens** | **Inference cost/quality auditing, Pareto analysis, routing rules** |
-| 5 | *(coming)* | Evaluation framework for long-context models |
+**Applied Systems (LangGraph pipelines — same failure modes under domain pressure):**
 
-Each project targets a distinct failure mode in production AI systems.
+| Project | Domain | Primary Failure Mode |
+|---------|--------|----------------------|
+| [LendFlow](https://github.com/SidharthKriplani/lendflow) | Financial underwriting | When to stop or escalate |
+| [AgentReliabilityLab](https://github.com/SidharthKriplani/agentreliabilitylab) | Cyber threat triage | When to stop or escalate |
+| [NexusSupply](https://github.com/SidharthKriplani/nexussupply) | Supplier risk intelligence | Conflicting signal fusion |
+
+**Libraries & Auditors (domain-agnostic tooling):**
+
+| Project | What It Audits |
+|---------|---------------|
+| **InferenceLens** | Inference cost/quality tradeoffs — Pareto frontier, routing rules |
+| [RiskFrame](https://github.com/SidharthKriplani/riskframe_platform) | ML model lifecycle — champion/challenger, drift, fairness |
+| [MetaSignal](https://github.com/SidharthKriplani/metasignal_platform) | A/B experiment validity — CUPED, guardrail-first, SRM |
+| [DevPulse](https://github.com/SidharthKriplani/devpulse_platform) | Version-safe RAG — conflict detection, LLM-Last architecture |
+| [PulseRank](https://github.com/SidharthKriplani/pulserank_platform) | Marketplace ranking — IPS debiasing, MMR diversity |
+| [TrialCheck](https://github.com/SidharthKriplani/trialcheck_v0) | A/B readout audit — SRM, peeking, underpowered tests |
+| [FeatureLeakageLens](https://github.com/SidharthKriplani/featureleakagelens_v0) | Pre-training leakage — target, temporal, overlap |
+| [GoldenSetAuditor](https://github.com/SidharthKriplani/goldensetauditor_v0) | LLM/RAG eval dataset quality |
+| [DocIngestQA](https://github.com/SidharthKriplani/docingestqa) | RAG document ingestion quality — 11 deterministic checks |
+| [MetricLens](https://github.com/SidharthKriplani/metriclens) | Metric movement decomposition — mix shift vs rate shift |
