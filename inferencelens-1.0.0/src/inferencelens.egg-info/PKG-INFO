@@ -1,3 +1,28 @@
+Metadata-Version: 2.4
+Name: inferencelens
+Version: 1.0.0
+Summary: Inference cost/quality tradeoff auditor for AI systems. Finds the Pareto frontier, flags dominated routing decisions, and outputs IF/THEN routing rules with PASS/WARN/FAIL verdicts.
+Author-email: Sidharth Kriplani <sidharthkriplani@gmail.com>
+License: MIT
+Project-URL: Homepage, https://github.com/SidharthKriplani/inferencelens
+Project-URL: Repository, https://github.com/SidharthKriplani/inferencelens
+Keywords: llm,inference,cost,quality,pareto,routing,audit,ai,observability
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Topic :: Scientific/Engineering :: Artificial Intelligence
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
+Requires-Python: >=3.9
+Description-Content-Type: text/markdown
+Requires-Dist: pydantic>=2.0.0
+Requires-Dist: python-dotenv>=1.0.0
+Requires-Dist: numpy>=1.24.0
+
 <div align="center">
 
 # InferenceLens

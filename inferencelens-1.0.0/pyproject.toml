@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "inferencelens"
+version = "1.0.0"
+description = "Inference cost/quality tradeoff auditor for AI systems. Finds the Pareto frontier, flags dominated routing decisions, and outputs IF/THEN routing rules with PASS/WARN/FAIL verdicts."
+readme = "README.md"
+license = {text = "MIT"}
+authors = [{name = "Sidharth Kriplani", email = "sidharthkriplani@gmail.com"}]
+requires-python = ">=3.9"
+keywords = ["llm", "inference", "cost", "quality", "pareto", "routing", "audit", "ai", "observability"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+]
+dependencies = [
+    "pydantic>=2.0.0",
+    "python-dotenv>=1.0.0",
+    "numpy>=1.24.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/SidharthKriplani/inferencelens"
+Repository = "https://github.com/SidharthKriplani/inferencelens"
+
+[tool.setuptools.packages.find]
+where = ["src"]

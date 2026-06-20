@@ -17,7 +17,7 @@ load_dotenv()
 # ---------------------------------------------------------------------------
 # Paths
 # ---------------------------------------------------------------------------
-ROOT_DIR = Path(__file__).parent
+ROOT_DIR = Path(__file__).parent.parent.parent
 DATA_DIR = ROOT_DIR / "data"
 AUDIT_LOG_PATH = ROOT_DIR / "audit_log.jsonl"
 
