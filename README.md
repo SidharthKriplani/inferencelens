@@ -1,6 +1,7 @@
 <div align="center">
 
 # InferenceLens
+[![PyPI](https://img.shields.io/pypi/v/inferencelens)](https://pypi.org/project/inferencelens/)
 
 **Inference Cost/Quality Tradeoff Auditor**
 
